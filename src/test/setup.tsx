@@ -3,6 +3,12 @@ import { cleanup } from '@testing-library/react';
 import * as matchers from '@testing-library/jest-dom/matchers';
 import React from 'react';
 
+declare module 'vitest' {
+  interface Assertion<T = any> {
+    toBeInTheDocument(): any;
+  }
+}
+
 // Extends Vitest's expect method with methods from react-testing-library
 expect.extend(matchers);
 
